@@ -12,7 +12,7 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 
 /**
- * Created by Heisenberg on 2016/7/10.
+ * Created by jameszheng on 2016/7/10.
  */
 class ConnectionWorker<I, T extends I> {
 

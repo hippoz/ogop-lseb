@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Random;
 
 /**
- * Created by Heisenberg on 2016/7/10.
+ * Created by jameszheng on 2016/7/10.
  */
 public class OgopServiceComponent implements IOgopService {
 
