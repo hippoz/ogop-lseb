@@ -12,6 +12,20 @@ public class OgopServiceComponent implements IOgopService {
 
     static final Random rand = new Random(System.currentTimeMillis());
 
+    static final String bigMessage;
+
+    static {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0 ; i < 16 ; i++) {
+            sb.append((char)('a' + i));
+        }
+        for (int i = 0; i < 20; i++) {
+            sb.append(sb.toString());
+        }
+        bigMessage = sb.toString();
+        System.out.println("Big Message Size(MB): " + bigMessage.length() / 1024 / 1024);
+    }
+
     @Override
     public String reverse(String msg) {
         try {
@@ -20,5 +34,10 @@ public class OgopServiceComponent implements IOgopService {
             throw new RuntimeException(e);
         }
         return StringUtils.reverse(msg);
+    }
+
+    @Override
+    public String bigMessageTest() {
+        return bigMessage;
     }
 }

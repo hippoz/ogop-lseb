@@ -1,5 +1,7 @@
 package moc.ogop.ahsp.net;
 
+import org.apache.commons.io.IOUtils;
+
 import java.io.*;
 
 /**
@@ -43,10 +45,7 @@ public class Utils {
         DataInputStream dis = new DataInputStream(is);
         int length = dis.readInt();
         byte[] array = new byte[length];
-        int l2 = dis.read(array);
-        if (l2 < length) {
-            throw new RuntimeException("required " + length + " bytes");
-        }
+        IOUtils.readFully(is, array);
         return Utils.fromBytes(array);
     }
 

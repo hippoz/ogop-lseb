@@ -6,6 +6,7 @@ import moc.ogop.ahsp.net.client.oio.ClientDelegate;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by jameszheng on 2016-07-11.
@@ -15,6 +16,7 @@ public class OioClientMain {
         IOgopService remote = ClientDelegate.remoteService("127.0.0.1", 1234, IOgopService.class);
         final int count = 50000;
         final int threadCount = 100;
+        final long startTime = System.currentTimeMillis();
         ExecutorService exec = Executors.newFixedThreadPool(threadCount);
         CountDownLatch latch = new CountDownLatch(count);
         for (int i = 0 ; i < count; i++) {
@@ -32,6 +34,8 @@ public class OioClientMain {
         }
         exec.shutdown();
         latch.await();
+        long totalTime = System.currentTimeMillis() - startTime;
+        System.out.println("Total Time Used:" + TimeUnit.MILLISECONDS.toSeconds(totalTime));
         System.exit(0);
     }
 }

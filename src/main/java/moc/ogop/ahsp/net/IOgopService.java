@@ -6,5 +6,8 @@ package moc.ogop.ahsp.net;
  * Created by jameszheng on 2016/7/10.
  */
 public interface IOgopService {
+
     String reverse(String msg);
+
+    String bigMessageTest();
 }

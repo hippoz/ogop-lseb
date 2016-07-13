@@ -4,6 +4,7 @@ import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -57,18 +58,19 @@ public class RPacket implements Externalizable {
     public void writeExternal(ObjectOutput out) throws IOException {
         out.writeInt(requestId);
         out.writeUTF(methodName);
-        out.writeInt(args.length);
+        int argc = args == null ? 0 : args.length;
+        out.writeInt(argc);
         out.writeObject(argTypes);
-        for (int i = 0 ; i < args.length; i++) {
+        for (int i = 0 ; i < argc; i++) {
             out.writeObject(args[i]);
         }
     }
 
     @Override
     public void readExternal(ObjectInput oin) throws IOException, ClassNotFoundException {
-        requestId = oin.readInt();
+        requestId  = oin.readInt();
         methodName = oin.readUTF();
-        int argc = oin.readInt();
+        int argc    = oin.readInt();
         argTypes = (List<String>) oin.readObject();
         args = new Object[argc];
         for (int i = 0 ; i < args.length; i++) {
