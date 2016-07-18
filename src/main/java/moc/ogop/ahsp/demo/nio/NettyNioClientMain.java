@@ -1,15 +1,15 @@
-package moc.ogop.ahsp.demo.oio;
+package moc.ogop.ahsp.demo.nio;
 
 import moc.ogop.ahsp.demo.ServiceRunner;
 import moc.ogop.ahsp.net.IOgopService;
-import moc.ogop.ahsp.net.client.oio.ClientDelegate;
+import moc.ogop.ahsp.net.client.nio.NioClientDelegate;
 
 /**
- * Created by jameszheng on 2016-07-11.
+ * Created by Heisenberg on 2016/7/18.
  */
-public class OioClientMain {
+public class NettyNioClientMain {
     public static void main(String[] args) throws Exception {
-        IOgopService remote = ClientDelegate.remoteService("127.0.0.1", 1234, IOgopService.class);
+        IOgopService remote = NioClientDelegate.remoteService("127.0.0.1", 1234, IOgopService.class);
         try {
             ServiceRunner.runService(remote);
         } finally {
