@@ -1,7 +1,7 @@
 package moc.ogop.ahsp.net.server;
 
-import moc.ogop.ahsp.net.RPacket;
-import moc.ogop.ahsp.net.WPacket;
+import moc.ogop.ahsp.net.io.RPacket;
+import moc.ogop.ahsp.net.io.WPacket;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

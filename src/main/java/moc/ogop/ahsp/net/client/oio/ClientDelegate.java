@@ -1,9 +1,9 @@
 package moc.ogop.ahsp.net.client.oio;
 
-import moc.ogop.ahsp.net.RPacket;
 import moc.ogop.ahsp.net.Utils;
-import moc.ogop.ahsp.net.WPacket;
 import moc.ogop.ahsp.net.client.AbstractClientDelegate;
+import moc.ogop.ahsp.net.io.RPacket;
+import moc.ogop.ahsp.net.io.WPacket;
 
 import java.io.IOException;
 import java.lang.reflect.Proxy;

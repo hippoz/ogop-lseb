@@ -3,7 +3,7 @@ package moc.ogop.ahsp.net.server.netty;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.concurrent.EventExecutorGroup;
-import moc.ogop.ahsp.net.RPacket;
+import moc.ogop.ahsp.net.io.RPacket;
 import moc.ogop.ahsp.net.server.PacketProcessor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -1,5 +1,6 @@
 package moc.ogop.ahsp.net;
 
+import moc.ogop.ahsp.net.io.IPacket;
 import org.apache.commons.io.IOUtils;
 
 import java.io.*;
@@ -23,7 +24,7 @@ public class Utils {
         }
     }
 
-    public static <T extends Serializable> T fromBytes(byte[] bytes) throws IOException {
+    public static <T extends IPacket> T fromBytes(byte[] bytes) throws IOException {
         ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(bytes));
         try {
             return  (T) ois.readObject();
@@ -41,7 +42,7 @@ public class Utils {
         t.start();
     }
 
-    public static <T extends Serializable> T readNext(InputStream is) throws IOException {
+    public static <T extends IPacket> T readNext(InputStream is) throws IOException {
         DataInputStream dis = new DataInputStream(is);
         int length = dis.readInt();
         byte[] array = new byte[length];

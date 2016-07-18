@@ -8,8 +8,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import moc.ogop.ahsp.net.DefaultThreadFactory;
-import moc.ogop.ahsp.net.RPacket;
 import moc.ogop.ahsp.net.client.AbstractClientDelegate;
+import moc.ogop.ahsp.net.io.RPacket;
 
 import java.io.IOException;
 import java.lang.reflect.Proxy;

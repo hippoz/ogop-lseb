@@ -4,6 +4,9 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.util.concurrent.EventExecutorGroup;
+import moc.ogop.ahsp.net.io.WPacket;
+import moc.ogop.ahsp.net.netty.PacketDecoder;
+import moc.ogop.ahsp.net.netty.PacketEncoder;
 import moc.ogop.ahsp.net.server.PacketProcessor;
 
 
@@ -24,8 +27,8 @@ public class NIOServiceInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
-        pipeline.addLast("WPacketBaseEncoder", new WPacketEncoder());
-        pipeline.addLast("RPacketBaseDecoder", new RPacketDecoder());
+        pipeline.addLast("WPacketBaseEncoder", new PacketEncoder<WPacket>());
+        pipeline.addLast("RPacketBaseDecoder", new PacketDecoder());
         pipeline.addLast("PacketHandler", new PacketHandlerNetty(proc, workGroup));
     }
 }

@@ -1,16 +1,15 @@
-package moc.ogop.ahsp.net;
+package moc.ogop.ahsp.net.io;
 
 import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by jameszheng on 2016/7/10.
  */
-public class RPacket implements Externalizable {
+public class RPacket implements IPacket, Externalizable {
 
     private static final long serialVersionUID = 42L;
 

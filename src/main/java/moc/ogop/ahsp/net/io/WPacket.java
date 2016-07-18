@@ -1,4 +1,4 @@
-package moc.ogop.ahsp.net;
+package moc.ogop.ahsp.net.io;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.io.ObjectOutput;
 /**
  * Created by jameszheng on 2016/7/10.
  */
-public class WPacket implements Externalizable {
+public class WPacket implements IPacket, Externalizable {
 
     private static final long serialVersionUID = 42L;
 
