@@ -7,7 +7,6 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import moc.ogop.ahsp.net.DefaultThreadFactory;
 import moc.ogop.ahsp.net.client.AbstractClientDelegate;
 import moc.ogop.ahsp.net.io.RPacket;
 
@@ -22,7 +21,7 @@ import java.util.concurrent.ExecutionException;
  */
 public class NioClientDelegate<I> extends AbstractClientDelegate {
 
-    final static EventLoopGroup nioEventLoop = new NioEventLoopGroup(5, new DefaultThreadFactory("NioClient", true));
+    private final static EventLoopGroup nioEventLoop = new NioEventLoopGroup(10);
 
     private final CompletableFuture<Channel> channelFuture = new CompletableFuture<>();
 
