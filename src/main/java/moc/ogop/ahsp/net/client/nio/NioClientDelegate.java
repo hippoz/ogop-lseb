@@ -22,14 +22,12 @@ import java.util.concurrent.ExecutionException;
  */
 public class NioClientDelegate<I> extends AbstractClientDelegate {
 
-    final static EventLoopGroup nioEventLoop = new NioEventLoopGroup(5, new DefaultThreadFactory("NioClient", true));
-
     private final CompletableFuture<Channel> channelFuture = new CompletableFuture<>();
 
     public NioClientDelegate(String hostName, int portNumber, Class<I> serviceInterface) throws IOException, InterruptedException {
         super(serviceInterface);
-        Bootstrap b = new Bootstrap();
-        b.group(nioEventLoop)
+        Bootstrap b = new Bootstrap()
+                .group(new NioEventLoopGroup())
                 .channel(NioSocketChannel.class)
                 .handler(new NioClientChannelInitializer(pending));
         ChannelFuture f = b.connect(new InetSocketAddress(hostName, portNumber));
